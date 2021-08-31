@@ -10,7 +10,7 @@ A minimal designed news app using [News API](https://newsapi.org/)
 
 # Design Inspiration
 - Google Discover feed.
-- google News.
+- Google News.
 
 # Instructions to locally run the app
 - Install and setup [Flutter](https://flutter.dev/?gclsrc=ds&gclsrc=ds)
