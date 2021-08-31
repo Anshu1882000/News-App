@@ -19,6 +19,9 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - Open your project directory and type the command "flutter run" (It will take a bit longer for the first build so wait patiently)
 - And that's all the app will start running on your device.
 
+# Screen recording of the app
+- [Video link](https://drive.google.com/file/d/1FyPzBB1IlSJlK7kd-1V-wANMLppA8WLz/view?usp=sharing)
+
 # Some Screenshots of the app
 ![Screenshot (22)](https://user-images.githubusercontent.com/62044531/131544498-7a98d294-9d17-42ea-bc49-eb359e09593c.png)
 
