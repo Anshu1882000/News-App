@@ -8,20 +8,21 @@ class NewsModel {
   String title;
   String description;
   String more;
-  String imageUrl;
+  String urlToImage;
   String content;
   String author;
   String publishedAt;
 
   NewsModel(
-      {@required this.title,
-      @required this.description,
+      {this.title,
+      this.description,
       this.more,
-      this.imageUrl,
+      this.urlToImage,
       this.content,
       this.author,
       this.publishedAt,
       this.source});
+
 }
 
 class NewsProvider with ChangeNotifier {
@@ -80,7 +81,7 @@ class NewsProvider with ChangeNotifier {
                 description: news['description'],
                 title: news['title'],
                 content: news['content'],
-                imageUrl: news['urlToImage'],
+                urlToImage: news['urlToImage'],
                 more: news['url'],
                 author: news['author'],
                 publishedAt: news['publishedAt']),
@@ -107,7 +108,7 @@ class NewsProvider with ChangeNotifier {
             _healthNews = tempnews;
           }
           break;
-        
+
         case 'science':
           {
             _scienceNews = tempnews;
@@ -125,8 +126,6 @@ class NewsProvider with ChangeNotifier {
           break;
       }
 
-
-
       notifyListeners();
     } catch (e) {
       throw e;
@@ -136,29 +135,28 @@ class NewsProvider with ChangeNotifier {
   Future<void> getsearchResult(query) async {
     try {
       final newsUrl = Uri.parse(
-          'https://newsapi.org/v2/top-headlines?apiKey=9a420f1e32e64332aca15d4fcb43b5a4&category=general&q=$query&country=in');
+          'https://newsapi.org/v2/top-headlines?apiKey=9f63c0261b534d4eb55ff60108320391&category=general&q=$query&country=in');
 
       final _newsResponse = await http.get(newsUrl);
       final _newsBody = json.decode(_newsResponse.body);
-      final _newsList = _newsBody['articles'] as List<dynamic>;      _searchResult = _newsList
-          .map(
-            (news) => NewsModel(
-                description: news['description'],
-                title: news['title'],
-                content: news['content'],
-                imageUrl: news['urlToImage'],
-                more: news['url'],
-                author: news['author'],
-                publishedAt: news['publishedAt']),
-          )
-          .toList();
-     
+      final _newsList = _newsBody['articles'] as List<dynamic>;
+      // _searchResult = _newsList
+      //     .map(
+      //       (news) => NewsModel(
+      //           description: news['description'],
+      //           title: news['title'],
+      //           content: news['content'],
+      //           imageUrl: news['urlToImage'],
+      //           more: news['url'],
+      //           author: news['author'],
+      //           publishedAt: news['publishedAt']),
+      //     )
+      //     .toList();
 
       notifyListeners();
     } catch (e) {
+      print(e);
       throw e;
     }
   }
-
-
 }

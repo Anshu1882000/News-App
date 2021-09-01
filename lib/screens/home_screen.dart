@@ -1,7 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../screens/news_screen.dart';
-import '../screens/search_screen.dart';
+import './business_screen.dart';
+import './entertainment_screen.dart';
+import './health_screen.dart';
+import './science_screen.dart';
+import './sports_screen.dart';
+import './tech_screen.dart';
+import 'general_news_screen.dart';
+import '../constants.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,17 +16,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List _icons = [
-    'All',
-    'Sports',
-    'Entertainment',
-    'Buisness',
-    'Health',
-    'Science',
-    'Tech'
-  ];
-
   int _selectedIndex = 0;
+
+  final _screens = [
+    GeneralNewsScreen(),
+    SportsScreen(),
+    EntertainmentScreen(),
+    BusinessScreen(),
+    HealthScreen(),
+    ScienceScreen(),
+    TechScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +46,16 @@ class _HomePageState extends State<HomePage> {
               centerTitle: true,
               backgroundColor: Colors.white,
               elevation: 0,
-              leading: IconButton(
-                icon: Icon(Icons.search_rounded, size: 40, color: Colors.black,), onPressed: () => {
-                  Navigator.of(context).pushNamed(SearchScreen.routeName)
-                }),
+              // leading: IconButton(
+              //   icon: Icon(
+              //     Icons.search_rounded,
+              //     size: 40,
+              //     color: Colors.black,
+              //   ),
+              //   onPressed: null, //() =>
+              //   // {Navigator.of(context).pushNamed(SearchScreen.routeName)},
+              // ),
+              
             ),
           ],
           body: Column(
@@ -51,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: _icons.length,
+                  itemCount: icons.length,
                   itemBuilder: (context, index) => GestureDetector(
                     onTap: () {
                       setState(() {
@@ -65,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                       child: Center(
                         child: Text(
-                          _icons[index],
+                          icons[index],
                           style: TextStyle(
                             color: _selectedIndex == index
                                 ? Colors.white
@@ -85,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 10),
-              NewsScreen(index: _selectedIndex)
+              _screens[_selectedIndex]
             ],
           ),
         ),

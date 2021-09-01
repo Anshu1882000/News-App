@@ -5,7 +5,6 @@ import './screens/news_detail.dart';
 import 'package:provider/provider.dart';
 import './models/news_model.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
+          accentColor: Colors.black,
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.white,
             elevation: 0,
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.white),
         routes: {
           NewsDetail.routeName: (context) => NewsDetail(),
-          SearchScreen.routeName: (context) => SearchScreen()
+          //SearchScreen.routeName: (context) => SearchScreen()
           },
       ),
     );

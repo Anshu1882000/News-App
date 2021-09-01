@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart' as url;
+import 'package:intl/intl.dart';
 
 class NewsDetail extends StatelessWidget {
   static const routeName = '/news-detail-screen';
@@ -16,7 +17,7 @@ class NewsDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
     final news = args['news'];
-    final publishedAt = DateTime.parse(news.publishedAt);
+    final _publishedAt = DateFormat.yMMMMd().format(DateTime.parse(news.publishedAt));
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -40,7 +41,7 @@ class NewsDetail extends StatelessWidget {
                     Text(
                       news.author == null ? 'Anonymous' : news.author,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -49,8 +50,8 @@ class NewsDetail extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(left: 15, right: 15),
                   child: Text(
-                    "Published - ${publishedAt.day}-${publishedAt.month}-${publishedAt.year}",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                   _publishedAt,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
                   ),
                 ),
               SizedBox(height: 15),
@@ -59,7 +60,7 @@ class NewsDetail extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 15, right: 15),
                 child: Text(
                   news.description,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: 25),
@@ -71,7 +72,7 @@ class NewsDetail extends StatelessWidget {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: CachedNetworkImage(
-                          imageUrl: news.imageUrl,
+                          imageUrl: news.urlToImage,
                           fit: BoxFit.fitWidth,
                           placeholder: (context, url) => Image.asset("images/placeholder.png"),
                           errorWidget: (context, url, error) => new Icon(Icons.error),
@@ -97,7 +98,7 @@ class NewsDetail extends StatelessWidget {
                 child: Text(
                   news.content,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -108,13 +109,15 @@ class NewsDetail extends StatelessWidget {
                   onPressed: news.more != null ? ()=> _launchUrl(news.more) : null,
                   style: OutlinedButton.styleFrom(
                       shape: StadiumBorder(),
-                      side: BorderSide(width: 2, color: Colors.black),
+                      //side: BorderSide(width: 2, color: Colors.black),
+                      backgroundColor: Colors.black,
+                      padding: EdgeInsets.all(13)
                       ),
                   child: Text(
                     'Full Coverage',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.black54,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),
                   ),

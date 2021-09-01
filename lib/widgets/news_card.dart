@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../screens/news_detail.dart';
 
 import '../models/news_model.dart';
@@ -25,6 +26,7 @@ class NewsCard extends StatelessWidget {
           child: Container(
               width: double.infinity,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Hero(
                     tag: news.title,
@@ -35,7 +37,7 @@ class NewsCard extends StatelessWidget {
                           topRight: Radius.circular(15),
                         ),
                         child: CachedNetworkImage(
-                          imageUrl: news.imageUrl,
+                          imageUrl: news.urlToImage,
                           fit: BoxFit.fitWidth,
                           placeholder: (context, url) => Image.asset("images/placeholder.png"),
                           errorWidget: (context, url, error) => new Icon(Icons.error),
@@ -49,7 +51,7 @@ class NewsCard extends StatelessWidget {
                       news.title,
                       overflow: TextOverflow.clip,
                       textScaleFactor: 1.2,
-                      //style: TextStyle(fontWeight: FontWeight.w500),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
