@@ -19,7 +19,7 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - And that's all the app will start running on your device.
 
 # Screen recording of the app
-- [Video link](https://drive.google.com/file/d/1FyPzBB1IlSJlK7kd-1V-wANMLppA8WLz/view?usp=sharing)
+- https://drive.google.com/file/d/1FyPzBB1IlSJlK7kd-1V-wANMLppA8WLz/view?usp=sharing
 
 # Apk link (Not final may throw some error)
 - [base.apk](https://drive.google.com/file/d/1GA4Gy3db5yTfHUcXN-ysmAJOcgrOaUAu/view?usp=sharing)
