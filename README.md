@@ -6,7 +6,6 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - Minimal looking ui.
 - Category wise news sections with easy to naviagte tab bar.
 - Detail page with a brief description of the news and a button which can open the news source directly in your browser.
-- Search Page ( It might throw some bugs because it is not tested throughly due to deadline )
 
 # Design Inspiration
 - Google Discover feed.
