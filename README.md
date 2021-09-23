@@ -6,6 +6,7 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - Minimal looking ui.
 - Category wise news sections with easy to naviagte tab bar.
 - Detail page with a brief description of the news and a button which can open the news source directly in your browser.
+- Pull to refresh the news in every section.
 
 # Design Inspiration
 - Google Discover feed.
@@ -19,10 +20,10 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - And that's all the app will start running on your device.
 
 # Screen recording of the app
-- [Video link](https://drive.google.com/file/d/1FyPzBB1IlSJlK7kd-1V-wANMLppA8WLz/view?usp=sharing)
+- https://drive.google.com/file/d/1FyPzBB1IlSJlK7kd-1V-wANMLppA8WLz/view?usp=sharing
 
 # Apk link (Not final may throw some error)
-- [base.apk](https://drive.google.com/file/d/1FuhycnqdIZOCrKzQvNOS2EzQwHmOfqAl/view?usp=sharing)
+- [base.apk](https://drive.google.com/file/d/1GA4Gy3db5yTfHUcXN-ysmAJOcgrOaUAu/view?usp=sharing)
 
 # Some Screenshots of the app
 ![Screenshot (22)](https://user-images.githubusercontent.com/62044531/131544498-7a98d294-9d17-42ea-bc49-eb359e09593c.png)
