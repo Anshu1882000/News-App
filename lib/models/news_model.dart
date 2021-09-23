@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import '../helper/db_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +22,6 @@ class NewsModel {
       this.author,
       this.publishedAt,
       this.source});
-
 }
 
 class NewsProvider with ChangeNotifier {
@@ -34,38 +33,57 @@ class NewsProvider with ChangeNotifier {
   List<NewsModel> _scienceNews = [];
   List<NewsModel> _businessNews = [];
   List<NewsModel> _searchResult = [];
+  List<NewsModel> _favNews = [];
 
-  List<NewsModel> get searchResult {
-    return [..._searchResult];
+  List<NewsModel> getNews(category) {
+    switch (category) {
+      case 'favorites':
+        {
+          return _favNews;
+        }
+        break;
+      case 'technology':
+        {
+          return _techNews;
+        }
+        break;
+      case 'general':
+        {
+          return _generalNews;
+        }
+        break;
+      case 'sports':
+        {
+          return _sportsNews;
+        }
+        break;
+      case 'health':
+        {
+          return _healthNews;
+        }
+        break;
+
+      case 'science':
+        {
+          return _scienceNews;
+        }
+        break;
+      case 'business':
+        {
+          return _businessNews;
+        }
+        break;
+      case 'entertainment':
+        {
+          return _entertainmentNews;
+        }
+        break;
+    }
   }
 
-  List<NewsModel> get generalNews {
-    return [..._generalNews];
-  }
-
-  List<NewsModel> get sportsNews {
-    return [..._sportsNews];
-  }
-
-  List<NewsModel> get techNews {
-    return [..._techNews];
-  }
-
-  List<NewsModel> get healthNews {
-    return [..._healthNews];
-  }
-
-  List<NewsModel> get entertainmentNews {
-    return [..._entertainmentNews];
-  }
-
-  List<NewsModel> get scienceNews {
-    return [..._scienceNews];
-  }
-
-  List<NewsModel> get businessNews {
-    return [..._businessNews];
-  }
+  // List<NewsModel> get searchResult {
+  //   return [..._searchResult];
+  // }
 
   Future<void> getAndFetchNews(category) async {
     try {
@@ -158,5 +176,36 @@ class NewsProvider with ChangeNotifier {
       print(e);
       throw e;
     }
+  }
+
+  void addFavorites(NewsModel news) {
+    DBHelper.insert('fav_news', {
+      'id': news.title,
+      'title': news.title,
+      'description': news.description,
+      'more': news.more,
+      'image': news.urlToImage,
+      'content': news.content,
+      'author': news.author,
+      'publishedAt': news.publishedAt,
+    });
+  }
+
+  Future<void> getFavourites() async {
+    final dataList = await DBHelper.getData('fav_news');
+    _favNews =dataList
+        .map(
+          (news) => NewsModel(
+              description: news['description'],
+              title: news['title'],
+              content: news['content'],
+              urlToImage: news['image'],
+              more: news['more'],
+              author: news['author'],
+              publishedAt: news['publishedAt']),
+        )
+        .toList();
+    
+    notifyListeners();
   }
 }

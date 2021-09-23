@@ -1,12 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import './business_screen.dart';
-import './entertainment_screen.dart';
-import './health_screen.dart';
-import './science_screen.dart';
-import './sports_screen.dart';
-import './tech_screen.dart';
 import 'general_news_screen.dart';
 import '../constants.dart';
 
@@ -19,20 +12,19 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final _screens = [
-    GeneralNewsScreen(),
-    SportsScreen(),
-    EntertainmentScreen(),
-    BusinessScreen(),
-    HealthScreen(),
-    ScienceScreen(),
-    TechScreen()
+    'general',
+    'sports',
+    'entertainment',
+    'business',
+    'health',
+    'science',
+    'technology'
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: NestedScrollView(
+        child: NestedScrollView(
           headerSliverBuilder: (context, _) => [
             SliverAppBar(
               title: Text(
@@ -46,16 +38,7 @@ class _HomePageState extends State<HomePage> {
               centerTitle: true,
               backgroundColor: Colors.white,
               elevation: 0,
-              // leading: IconButton(
-              //   icon: Icon(
-              //     Icons.search_rounded,
-              //     size: 40,
-              //     color: Colors.black,
-              //   ),
-              //   onPressed: null, //() =>
-              //   // {Navigator.of(context).pushNamed(SearchScreen.routeName)},
-              // ),
-              
+              leading: Icon(Icons.search_rounded),
             ),
           ],
           body: Column(
@@ -98,11 +81,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 10),
-              _screens[_selectedIndex]
+              GeneralNewsScreen(_screens[_selectedIndex])
             ],
           ),
         ),
-      ),
     );
   }
 }

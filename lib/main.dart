@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/search_screen.dart';
+import 'package:news_app/screens/navigation_screen.dart';
 import './screens/home_screen.dart';
 import './screens/news_detail.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               'News App',
               style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
             ),
-            nextScreen: HomePage(),
+            nextScreen: NavigationScreen(),
             splashTransition: SplashTransition.fadeTransition,
             backgroundColor: Colors.white),
         routes: {
