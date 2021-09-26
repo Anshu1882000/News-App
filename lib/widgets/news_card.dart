@@ -4,10 +4,15 @@ import 'package:provider/provider.dart';
 import '../screens/news_detail.dart';
 import 'package:intl/intl.dart';
 import '../models/news_model.dart';
+import 'package:share/share.dart';
 
 class NewsCard extends StatelessWidget {
   final NewsModel news;
   NewsCard({this.news});
+
+  _share() {
+    Share.share(news.more);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,13 +82,16 @@ class NewsCard extends StatelessWidget {
                             Icons.share,
                             color: Colors.black87,
                           ),
-                          onPressed: null),
+                          onPressed: _share,
+                        ),
                       IconButton(
                           icon: Icon(
                             Icons.favorite_outline,
                             color: Colors.black87,
                           ),
-                          onPressed: () => Provider.of<NewsProvider>(context,listen: false).addFavorites(news))
+                          onPressed: () =>
+                              Provider.of<NewsProvider>(context, listen: false)
+                                  .addFavorites(news))
                     ],
                   ),
                 )

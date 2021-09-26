@@ -35,6 +35,7 @@ class NewsProvider with ChangeNotifier {
   List<NewsModel> _searchResult = [];
   List<NewsModel> _favNews = [];
 
+  // ignore: missing_return
   List<NewsModel> getNews(category) {
     switch (category) {
       case 'favorites':
