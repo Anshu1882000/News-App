@@ -27,7 +27,7 @@ A minimal designed news app using [News API](https://newsapi.org/)
 - [base.apk](https://drive.google.com/file/d/1GA4Gy3db5yTfHUcXN-ysmAJOcgrOaUAu/view?usp=sharing)
 
 # Some Screenshots of the app
-![Screenshot (22)](https://user-images.githubusercontent.com/62044531/131544498-7a98d294-9d17-42ea-bc49-eb359e09593c.png) 
+<p align="center">![Screenshot (22)](https://user-images.githubusercontent.com/62044531/131544498-7a98d294-9d17-42ea-bc49-eb359e09593c.png) </p>
 
 ![Screenshot (23)](https://user-images.githubusercontent.com/62044531/131544506-7cf090bb-190a-4425-8398-c9f16a12dcec.png)
 
