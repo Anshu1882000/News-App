@@ -31,15 +31,15 @@ A minimal designed news app using [News API](https://newsapi.org/)
 
 <p align="right"><img src="https://user-images.githubusercontent.com/62044531/131544506-7cf090bb-190a-4425-8398-c9f16a12dcec.png"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/62044531/131544517-f4329e18-7a9a-477f-945d-b1522cc9ddca.png"></p>
+<p align="left"><img src="https://user-images.githubusercontent.com/62044531/131544517-f4329e18-7a9a-477f-945d-b1522cc9ddca.png"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/62044531/131544521-508727be-a799-4097-a1ae-1a44f96dcfd8.png"></p>
+<p align="right"><img src="https://user-images.githubusercontent.com/62044531/131544521-508727be-a799-4097-a1ae-1a44f96dcfd8.png"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/62044531/131544526-ce12cca8-54f1-4746-b2ce-8dff22264b8e.png"></p>
+<p align="left"><img src="https://user-images.githubusercontent.com/62044531/131544526-ce12cca8-54f1-4746-b2ce-8dff22264b8e.png"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/62044531/131544531-57193b68-6e8e-4fe3-a5f3-60e65246ca53.png"></p>
+<p align="right"><img src="https://user-images.githubusercontent.com/62044531/131544531-57193b68-6e8e-4fe3-a5f3-60e65246ca53.png"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/62044531/138706654-55ccc60f-ea37-4efc-82d1-15e6e62e072c.png"></p>
+<p align="left"><img src="https://user-images.githubusercontent.com/62044531/138706654-55ccc60f-ea37-4efc-82d1-15e6e62e072c.png"></p>
 
 
 
