@@ -192,9 +192,16 @@ class NewsProvider with ChangeNotifier {
     });
   }
 
+  void deleteFavorites(String id) {
+    DBHelper.deleteFavorites('fav_news', id);
+    int delIndex = _favNews.indexWhere((element) => element.title == id);
+    _favNews.removeAt(delIndex);
+    notifyListeners();
+  }
+
   Future<void> getFavourites() async {
     final dataList = await DBHelper.getData('fav_news');
-    _favNews =dataList
+    _favNews = dataList
         .map(
           (news) => NewsModel(
               description: news['description'],
@@ -206,7 +213,7 @@ class NewsProvider with ChangeNotifier {
               publishedAt: news['publishedAt']),
         )
         .toList();
-    
+
     notifyListeners();
   }
 }

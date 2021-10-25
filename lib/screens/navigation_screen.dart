@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/favorites.dart';
+import 'package:news_app/screens/favorites_screen.dart';
 import 'package:news_app/screens/home_screen.dart';
 
 import '../path_painter.dart';
