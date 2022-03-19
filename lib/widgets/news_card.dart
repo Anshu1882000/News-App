@@ -1,13 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/screens/web_view.dart';
 import 'package:provider/provider.dart';
 import '../screens/news_detail.dart';
 import 'package:intl/intl.dart';
-import '../models/news_model.dart';
+import '../providers/news_provider.dart';
 import 'package:share/share.dart';
 
 class NewsCard extends StatelessWidget {
   final NewsModel news;
+
+  final snackBar = SnackBar(
+    content: Text(
+      'News added to favorites.',
+      style: TextStyle(fontSize: 18, color: Colors.white),
+    ),
+    backgroundColor: Colors.black,
+  );
+
   NewsCard({this.news});
 
   _share() {
@@ -23,7 +33,7 @@ class NewsCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.of(context)
-              .pushNamed(NewsDetail.routeName, arguments: {"news": news});
+              .pushNamed(CustomWebView.routeName, arguments: {"news": news});
         },
         child: Card(
           elevation: 3,
@@ -37,6 +47,8 @@ class NewsCard extends StatelessWidget {
                 Hero(
                   tag: news.title,
                   child: Container(
+                    height: 200,
+                    width: double.infinity,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -44,7 +56,7 @@ class NewsCard extends StatelessWidget {
                       ),
                       child: CachedNetworkImage(
                         imageUrl: news.urlToImage,
-                        fit: BoxFit.fitWidth,
+                        fit: BoxFit.cover,
                         placeholder: (context, url) =>
                             Image.asset("images/placeholder.png"),
                         errorWidget: (context, url, error) =>
@@ -78,20 +90,24 @@ class NewsCard extends StatelessWidget {
                         ),
                       Spacer(),
                       IconButton(
-                          icon: Icon(
-                            Icons.share,
-                            color: Colors.black87,
-                          ),
-                          onPressed: _share,
+                        icon: Icon(
+                          Icons.share,
+                          color: Colors.black87,
                         ),
+                        onPressed: _share,
+                      ),
                       IconButton(
                           icon: Icon(
-                            Icons.favorite_outline,
+                            Icons.add_circle_rounded,
+                            size: 30,
                             color: Colors.black87,
                           ),
-                          onPressed: () =>
-                              Provider.of<NewsProvider>(context, listen: false)
-                                  .addFavorites(news))
+                          onPressed: () {
+                            Provider.of<NewsProvider>(context, listen: false)
+                                .addFavorites(news);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          },),
                     ],
                   ),
                 )

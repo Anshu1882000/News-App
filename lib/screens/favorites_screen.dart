@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/news_model.dart';
+import 'package:news_app/providers/news_provider.dart';
 import 'package:news_app/widgets/loader.dart';
 import 'package:news_app/widgets/favorites_card.dart';
 import 'package:news_app/widgets/show_dialogue.dart';

@@ -45,22 +45,24 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      bottomNavigationBar: CustomPaint(
-      painter: PathPainter(_page),
-      child: Container(
-        width: width,
-        height: 60,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            navigationItem(width, 0),
-            navigationItem(width, 1),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: CustomPaint(
+        painter: PathPainter(_page),
+        child: Container(
+          width: width,
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              navigationItem(width, 0),
+              navigationItem(width, 1),
+            ],
+          ),
         ),
       ),
-    ),
-      body: screens[_page],
+        body: screens[_page],
+      ),
     );
   }
 }

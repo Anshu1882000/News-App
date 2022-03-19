@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'general_news_screen.dart';
+import 'news_screen.dart';
 import '../constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               centerTitle: true,
               backgroundColor: Colors.white,
               elevation: 0,
-              leading: Icon(Icons.search_rounded),
+              //leading: Icon(Icons.search_rounded),
             ),
           ],
           body: Column(
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 10),
-              GeneralNewsScreen(_screens[_selectedIndex])
+              NewsScreen(_screens[_selectedIndex])
             ],
           ),
         ),

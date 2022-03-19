@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/widgets/show_dialogue.dart';
 import 'package:provider/provider.dart';
-import '../models/news_model.dart';
+import '../providers/news_provider.dart';
 import '../widgets/news_card.dart';
 import '../widgets/loader.dart';
 
-class GeneralNewsScreen extends StatelessWidget {
+class NewsScreen extends StatelessWidget {
   final category;
-  GeneralNewsScreen(this.category);
+  NewsScreen(this.category);
   @override
   Widget build(BuildContext context) {
     final newsProvider = Provider.of<NewsProvider>(context, listen: false);
@@ -27,6 +27,7 @@ class GeneralNewsScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height,
                       width: double.infinity,
                       child: RefreshIndicator(
+                        color: Theme.of(context).accentColor,
                         onRefresh: () => newsProvider
                             .getAndFetchNews(category)
                             .catchError(

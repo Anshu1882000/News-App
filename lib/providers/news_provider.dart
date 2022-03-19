@@ -32,7 +32,7 @@ class NewsProvider with ChangeNotifier {
   List<NewsModel> _entertainmentNews = [];
   List<NewsModel> _scienceNews = [];
   List<NewsModel> _businessNews = [];
-  List<NewsModel> _searchResult = [];
+  //List<NewsModel> _searchResult = [];
   List<NewsModel> _favNews = [];
 
   // ignore: missing_return
@@ -151,34 +151,6 @@ class NewsProvider with ChangeNotifier {
     }
   }
 
-  Future<void> getsearchResult(query) async {
-    try {
-      final newsUrl = Uri.parse(
-          'https://newsapi.org/v2/top-headlines?apiKey=9f63c0261b534d4eb55ff60108320391&category=general&q=$query&country=in');
-
-      final _newsResponse = await http.get(newsUrl);
-      final _newsBody = json.decode(_newsResponse.body);
-      final _newsList = _newsBody['articles'] as List<dynamic>;
-      // _searchResult = _newsList
-      //     .map(
-      //       (news) => NewsModel(
-      //           description: news['description'],
-      //           title: news['title'],
-      //           content: news['content'],
-      //           imageUrl: news['urlToImage'],
-      //           more: news['url'],
-      //           author: news['author'],
-      //           publishedAt: news['publishedAt']),
-      //     )
-      //     .toList();
-
-      notifyListeners();
-    } catch (e) {
-      print(e);
-      throw e;
-    }
-  }
-
   void addFavorites(NewsModel news) {
     DBHelper.insert('fav_news', {
       'id': news.title,
@@ -216,4 +188,32 @@ class NewsProvider with ChangeNotifier {
 
     notifyListeners();
   }
+
+  // Future<void> getsearchResult(query) async {
+  //   try {
+  //     final newsUrl = Uri.parse(
+  //         'https://newsapi.org/v2/top-headlines?apiKey=9f63c0261b534d4eb55ff60108320391&category=general&q=$query&country=in');
+
+  //     final _newsResponse = await http.get(newsUrl);
+  //     final _newsBody = json.decode(_newsResponse.body);
+  //     final _newsList = _newsBody['articles'] as List<dynamic>;
+  //     _searchResult = _newsList
+  //         .map(
+  //           (news) => NewsModel(
+  //               description: news['description'],
+  //               title: news['title'],
+  //               content: news['content'],
+  //               imageUrl: news['urlToImage'],
+  //               more: news['url'],
+  //               author: news['author'],
+  //               publishedAt: news['publishedAt']),
+  //         )
+  //         .toList();
+
+  //     notifyListeners();
+  //   } catch (e) {
+  //     print(e);
+  //     throw e;
+  //   }
+  // }
 }

@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/screens/web_view.dart';
 import 'package:provider/provider.dart';
 import '../screens/news_detail.dart';
 import 'package:intl/intl.dart';
-import '../models/news_model.dart';
+import '../providers/news_provider.dart';
 import 'package:share/share.dart';
 
 class FavoritesCard extends StatelessWidget {
@@ -19,15 +20,15 @@ class FavoritesCard extends StatelessWidget {
     final _publishedAt =
         DateFormat.yMMMMd().format(DateTime.parse(news.publishedAt));
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(5),
       child: GestureDetector(
         onTap: () {
           Navigator.of(context)
-              .pushNamed(NewsDetail.routeName, arguments: {"news": news});
+              .pushNamed(CustomWebView.routeName, arguments: {"news": news});
         },
         child: Card(
           elevation: 5,
-          color: Colors.white70,
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
